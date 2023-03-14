@@ -5,32 +5,35 @@ import 'package:emerapp/viewmodel/splash_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
-class PoliceView extends StatelessWidget {
-  const PoliceView({super.key});
+import '../viewmodel/ambulance_viewmodel.dart';
+import '../viewmodel/firebrigade_viewmodel.dart';
+
+class FireBrigade extends StatelessWidget {
+  const FireBrigade({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return ViewModelBuilder<PoliceViewModel>.reactive(
+    return ViewModelBuilder<FireBrigadeModel>.reactive(
       onViewModelReady: (viewModel) {},
-      viewModelBuilder: () => PoliceViewModel(),
+      viewModelBuilder: () => FireBrigadeModel(),
       builder: (context, viewModel, child) => Scaffold(
-        body: ListView(children: [
-          SafeArea(
-            child: Column(
+        body: SafeArea(
+          child: ListView(children: [
+            Column(
               children: [
                 Container(
                   width: MediaQuery.of(context).size.width * 1,
                   height: MediaQuery.of(context).size.height * 0.23,
                   decoration: BoxDecoration(
-                    color: Color(0xffdae8ff),
+                    color: Color.fromARGB(255, 160, 235, 250),
                     borderRadius: const BorderRadius.only(
                         bottomLeft: Radius.circular(50),
                         bottomRight: Radius.circular(50)),
                   ),
                   child: Center(
                     child: Text(
-                      "Police Helpline",
-                      style: TextStyle(fontFamily: 'Pacifico', fontSize: 40),
+                      "FireBrigade Helpline",
+                      style: TextStyle(fontFamily: 'Pacifico', fontSize: 35),
                     ),
                   ),
                 ),
@@ -38,20 +41,18 @@ class PoliceView extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                   child: TextFormField(
-                    controller: viewModel.userdata.namecontoller,
                     keyboardType: TextInputType.text,
+                    controller: viewModel.userdata.firenamecontoller,
                     decoration: InputDecoration(
                       hintText: 'Your Name',
                       hintStyle: TextStyle(
                           fontFamily: 'Poppins',
-                          color: Colors.black87,
-                          fontWeight: FontWeight.w600),
+                          fontWeight: FontWeight.w600,
+                          color: Colors.black87),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(
-                          width: 1,
-                          color: Color(0xffdae8ff),
-                        ),
+                        borderSide:
+                            BorderSide(width: 1, color: Colors.blueGrey),
                       ),
                     ),
                     onChanged: (value) {},
@@ -63,29 +64,26 @@ class PoliceView extends StatelessWidget {
                     decoration: InputDecoration(
                         border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide(
-                        width: 1,
-                        color: Color(0xffdae8ff),
-                      ),
+                      borderSide: BorderSide(width: 1, color: Colors.blueGrey),
                     )),
                     child: DropdownButtonHideUnderline(
                       child: DropdownButton(
                           isDense: true,
                           isExpanded: true,
                           menuMaxHeight: 250,
-                          value: viewModel.defaultname1,
+                          value: viewModel.defaultname3,
                           items: [
                             DropdownMenuItem(
                               child: Text(
                                 "Select Case",
                                 style: TextStyle(
                                     fontFamily: 'Poppins',
-                                    color: Colors.black87,
-                                    fontWeight: FontWeight.w600),
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.black87),
                               ),
                               value: "",
                             ),
-                            ...viewModel.cases
+                            ...viewModel.cases3
                                 .map<DropdownMenuItem<String>>((e) {
                               return DropdownMenuItem(
                                 child: Text(
@@ -100,10 +98,9 @@ class PoliceView extends StatelessWidget {
                             }).toList(),
                           ],
                           onChanged: (value) {
-                            viewModel.changescene(value);
+                            viewModel.changeon(value);
                             print("Selected Case: $value");
-                            viewModel.userdata.defaultnm1 = value!;
-                            print(viewModel.defaultnm1);
+                            viewModel.userdata.defaultnm3 = value!;
                           }),
                     ),
                   ),
@@ -113,22 +110,19 @@ class PoliceView extends StatelessWidget {
                       const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                   child: ListTile(
                     shape: RoundedRectangleBorder(
-                      side: BorderSide(
-                        width: 1,
-                        color: Color(0xffdae8ff),
-                      ),
+                      side: BorderSide(width: 1, color: Colors.blueGrey),
                       borderRadius: BorderRadius.circular(10),
                     ),
                     title: Text(
-                      "Police Helpline",
+                      "FireBrigade Helpline",
                       style: TextStyle(
                           fontFamily: 'Poppins',
-                          fontSize: 18,
                           color: Colors.black87,
-                          fontWeight: FontWeight.w600),
+                          fontWeight: FontWeight.w600,
+                          fontSize: 18),
                     ),
                     subtitle: Text(
-                      "Dial: 125",
+                      "Dial: (021) 36649983",
                       style: TextStyle(
                           fontFamily: 'Poppins',
                           fontSize: 15,
@@ -136,7 +130,7 @@ class PoliceView extends StatelessWidget {
                     ),
                     trailing: GestureDetector(
                       onTap: () {
-                        viewModel.makecallforPolice();
+                        viewModel.makecallforFireBrigade();
                       },
                       child: Icon(
                         Icons.phone,
@@ -147,8 +141,8 @@ class PoliceView extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: () {
-                    viewModel.userdata.addData();
-                    viewModel.userdata.namecontoller.clear();
+                    viewModel.userdata.fireaddData();
+                    viewModel.userdata.firenamecontoller.clear();
                   },
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
@@ -157,7 +151,7 @@ class PoliceView extends StatelessWidget {
                       width: MediaQuery.of(context).size.width * 1,
                       height: MediaQuery.of(context).size.height * 0.08,
                       decoration: BoxDecoration(
-                        color: Color(0xffdae8ff),
+                        color: Color.fromARGB(255, 160, 235, 250),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Center(
@@ -174,8 +168,8 @@ class PoliceView extends StatelessWidget {
                 )
               ],
             ),
-          ),
-        ]),
+          ]),
+        ),
       ),
     );
   }

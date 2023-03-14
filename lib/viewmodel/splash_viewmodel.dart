@@ -9,6 +9,17 @@ class SplashViewModel extends BaseViewModel {
   final _navigationService = locator<NavigationService>();
 
   navigatetoRegister() {
-    _navigationService.navigateToRegisterView();
+    _navigationService..navigateToLoginView();
   }
+List colorizeColors = [
+  Colors.purple,
+  Colors.blue,
+  Colors.yellow,
+  Colors.red,
+];
+
+ TextStyle colorizeTextStyle = TextStyle(
+  fontSize: 50.0,
+  fontFamily: 'Horizon',
+);
 }
