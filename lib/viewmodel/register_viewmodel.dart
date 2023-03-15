@@ -3,6 +3,7 @@ import 'package:emerapp/app/app.locator.dart';
 import 'package:emerapp/app/app.router.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
@@ -22,6 +23,12 @@ class RegisterViewModel extends BaseViewModel {
   bool isHidden = true;
   showpassword() {
     isHidden = !isHidden;
+    rebuildUi();
+  }
+
+  bool isreHidden = true;
+  reshowpassword() {
+    isreHidden = !isreHidden;
     rebuildUi();
   }
 
@@ -52,8 +59,9 @@ class RegisterViewModel extends BaseViewModel {
 
       userdata.shareddata();
       rebuildUi();
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text("User Successfully Added")));
+      Fluttertoast.showToast(
+          msg: "You are Successfully Register Yourself",
+          backgroundColor: Colors.indigoAccent);
       rebuildUi();
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {

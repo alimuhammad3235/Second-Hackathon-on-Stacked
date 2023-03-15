@@ -34,6 +34,8 @@ class LoginViewModel extends BaseViewModel {
         email: emailcontroller.text,
         password: passcontroller.text,
       );
+       Fluttertoast.showToast(
+            msg: "Successfully LogIn", backgroundColor: Colors.indigoAccent);
       _navigationService.navigateToUserView();
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {

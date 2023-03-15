@@ -1,6 +1,5 @@
 import 'dart:async';
 
-
 import 'package:emerapp/viewmodel/user_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -15,7 +14,6 @@ class UserView extends StatelessWidget {
         onViewModelReady: (viewModel) async {
           await showdt();
           viewModel.rebuildUi();
-
         },
         viewModelBuilder: () => UserViewModel(),
         builder: (context, viewModel, child) => Scaffold(
@@ -23,7 +21,7 @@ class UserView extends StatelessWidget {
                 onPressed: () {
                   viewModel.navigateToMap();
                 },
-                child:  Icon(
+                child: Icon(
                   Icons.location_on,
                   color: Colors.black87,
                   size: 40,
@@ -33,42 +31,42 @@ class UserView extends StatelessWidget {
               body: SafeArea(
                 child: ListView(children: [
                   Column(children: [
-                    GestureDetector(
-                        onTap: () {
-                          viewModel.logout();
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.only(right: 10, top: 50),
-                          child: Align(
-                              alignment: Alignment.centerRight,
-                              child: Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 20),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                 const   Icon(
-                                      Icons.menu,
-                                      size: 30,
-                                    ),
-                                    Text(
-                                      email.toString(),
-                                      style:const TextStyle(
-                                          fontFamily: 'Poppins',
-                                          fontSize: 26,
-                                          fontWeight: FontWeight.w600),
-                                    ),
-                                  const  Icon(
+                    Padding(
+                        padding: const EdgeInsets.only(right: 10, top: 50),
+                        child: Align(
+                          alignment: Alignment.centerRight,
+                          child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 20),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  const Icon(
+                                    Icons.menu,
+                                    size: 30,
+                                  ),
+                                  Text(
+                                    email.toString(),
+                                    style: const TextStyle(
+                                        fontFamily: 'Poppins',
+                                        fontSize: 26,
+                                        fontWeight: FontWeight.w600),
+                                  ),
+                                  GestureDetector(
+                                    onTap: () {
+                                      viewModel.logout();
+                                    },
+                                    child: const Icon(
                                       Icons.logout,
                                       size: 30,
                                       color: Colors.black,
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               )),
                         )),
-                   const Padding(
+                    const Padding(
                       padding: const EdgeInsets.only(top: 38),
                       child: Text(
                         "Following Provided Services",
@@ -101,7 +99,7 @@ class UserView extends StatelessWidget {
                                   child: Center(
                                     child: Column(
                                       children: [
-                                       const Padding(
+                                        const Padding(
                                           padding:
                                               const EdgeInsets.only(top: 30),
                                           child: Text(
@@ -112,7 +110,7 @@ class UserView extends StatelessWidget {
                                                 fontSize: 22),
                                           ),
                                         ),
-                                       const Text(
+                                        const Text(
                                           "Dial: 125",
                                           style: TextStyle(
                                               fontFamily: 'Pacifico',
@@ -125,7 +123,7 @@ class UserView extends StatelessWidget {
                                             onTap: () {
                                               viewModel.navigateToPolice();
                                             },
-                                            child:const Icon(
+                                            child: const Icon(
                                               Icons.forward_outlined,
                                               size: 50,
                                             ),
@@ -146,12 +144,12 @@ class UserView extends StatelessWidget {
                                       MediaQuery.of(context).size.height * 0.25,
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(20),
-                                    color:const Color(0xff8dfee8),
+                                    color: const Color(0xff8dfee8),
                                   ),
                                   child: Center(
                                     child: Column(
                                       children: [
-                                      const  Padding(
+                                        const Padding(
                                           padding:
                                               const EdgeInsets.only(top: 30),
                                           child: Text(
@@ -162,7 +160,7 @@ class UserView extends StatelessWidget {
                                                 fontSize: 18),
                                           ),
                                         ),
-                                      const  Text(
+                                        const Text(
                                           "Dial: 1122",
                                           style: TextStyle(
                                               fontFamily: 'Pacifico',
@@ -175,7 +173,7 @@ class UserView extends StatelessWidget {
                                             onTap: () {
                                               viewModel.navigateToAmbulance();
                                             },
-                                            child:const Icon(
+                                            child: const Icon(
                                               Icons.forward_outlined,
                                               size: 50,
                                             ),
@@ -198,7 +196,7 @@ class UserView extends StatelessWidget {
                               height: MediaQuery.of(context).size.height * 0.25,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(25),
-                                color:const Color(0xffd4f3f9),
+                                color: const Color(0xffd4f3f9),
                               ),
                               child: Center(
                                 child: Padding(
@@ -215,8 +213,8 @@ class UserView extends StatelessWidget {
                                               fontSize: 22),
                                         ),
                                       ),
-                                    const  Padding(
-                                        padding:  EdgeInsets.only(top: 5),
+                                      const Padding(
+                                        padding: EdgeInsets.only(top: 5),
                                         child: Text(
                                           "Dial: (021)3664",
                                           style: TextStyle(
@@ -231,7 +229,7 @@ class UserView extends StatelessWidget {
                                           onTap: () {
                                             viewModel.navigatieToFire();
                                           },
-                                          child:const Icon(
+                                          child: const Icon(
                                             Icons.forward_outlined,
                                             size: 50,
                                           ),

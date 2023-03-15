@@ -27,12 +27,12 @@ class SplashView extends StatelessWidget {
                       padding: const EdgeInsets.only(top: 60, left: 40),
                       child: Image.asset(ImagesConst.img2),
                     ),
-                  const  Padding(
+                    const Padding(
                       padding: const EdgeInsets.only(left: 100, top: 50),
                       child: Text(
                         "SQuiP",
                         style: TextStyle(
-                            fontFamily: 'Poppins',
+                            fontFamily: 'Pacifico',
                             fontSize: 50,
                             fontWeight: FontWeight.w400,
                             color: Colors.white),
@@ -48,7 +48,7 @@ class SplashView extends StatelessWidget {
                     child: Image.asset(ImagesConst.img1),
                   ),
                   const Padding(
-                    padding:  EdgeInsets.all(30.0),
+                    padding: EdgeInsets.all(30.0),
                     child: Text(
                       "The Emergency \n Response App",
                       style: TextStyle(

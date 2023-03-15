@@ -1,4 +1,6 @@
+import 'package:emerapp/app/app.router.dart';
 import 'package:stacked/stacked.dart';
+import 'package:stacked_services/stacked_services.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../app/app.locator.dart';
@@ -6,6 +8,7 @@ import '../services/show_pass.dart';
 
 class FireBrigadeModel extends BaseViewModel {
   final userdata = locator<Spdata>();
+  final _navigationService = locator<NavigationService>();
 
   String defaultname3 = "";
   String Dropdownvalue3 = "apple";
@@ -28,5 +31,9 @@ class FireBrigadeModel extends BaseViewModel {
     } else {
       print('cannot launch this url');
     }
+  }
+
+  navigatetoUser() {
+    _navigationService.navigateToUserView();
   }
 }

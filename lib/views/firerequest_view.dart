@@ -31,7 +31,7 @@ class FireRequest extends StatelessWidget {
               padding: const EdgeInsets.only(bottom: 10),
               child: Container(
                 width: MediaQuery.of(context).size.width * 1,
-                height: MediaQuery.of(context).size.height * 0.13,
+                height: MediaQuery.of(context).size.height * 0.20,
                 decoration: BoxDecoration(
                   color: Color.fromARGB(255, 160, 235, 250),
                   borderRadius: const BorderRadius.only(
@@ -41,6 +41,21 @@ class FireRequest extends StatelessWidget {
                 child: Center(
                   child: Column(
                     children: [
+                      GestureDetector(
+                        onTap: () {
+                          viewModel.logout();
+                        },
+                        child: const Padding(
+                          padding: const EdgeInsets.only(right: 20, top: 20),
+                          child: Align(
+                            alignment: Alignment.centerRight,
+                            child: Icon(
+                              Icons.logout,
+                              size: 35,
+                            ),
+                          ),
+                        ),
+                      ),
                       Text(
                         email.toString(),
                         style: TextStyle(

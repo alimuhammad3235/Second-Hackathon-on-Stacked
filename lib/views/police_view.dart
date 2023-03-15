@@ -27,11 +27,31 @@ class PoliceView extends StatelessWidget {
                         bottomLeft: Radius.circular(50),
                         bottomRight: Radius.circular(50)),
                   ),
-                  child: Center(
-                    child: Text(
-                      "Police Helpline",
-                      style: TextStyle(fontFamily: 'Pacifico', fontSize: 40),
-                    ),
+                  child: Column(
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          viewModel.navigatetoUser();
+                        },
+                        child: const Padding(
+                          padding: const EdgeInsets.only(top: 20, left: 25),
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Icon(
+                              Icons.arrow_back_sharp,
+                              size: 35,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Center(
+                        child: Text(
+                          "Police Helpline",
+                          style:
+                              TextStyle(fontFamily: 'Pacifico', fontSize: 40),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 Padding(

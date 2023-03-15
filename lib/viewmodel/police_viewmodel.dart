@@ -1,7 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:emerapp/app/app.router.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
+import 'package:stacked_services/stacked_services.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../app/app.locator.dart';
@@ -9,6 +11,7 @@ import '../services/show_pass.dart';
 
 class PoliceViewModel extends BaseViewModel {
   final userdata = locator<Spdata>();
+  final _navigationService = locator<NavigationService>();
 
   String defaultname1 = "";
   String defaultnm1 = "";
@@ -34,5 +37,7 @@ class PoliceViewModel extends BaseViewModel {
     }
   }
 
- 
+  navigatetoUser() {
+    _navigationService.navigateToUserView();
+  }
 }

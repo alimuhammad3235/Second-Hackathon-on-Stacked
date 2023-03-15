@@ -18,7 +18,7 @@ class RegisterView extends StatelessWidget {
               body: ListView(children: [
                 Column(
                   children: [
-                  const  Padding(
+                    const Padding(
                       padding: const EdgeInsets.only(top: 40),
                       child: Text(
                         "Registration",
@@ -34,7 +34,7 @@ class RegisterView extends StatelessWidget {
                       child: TextFormField(
                         controller: viewModel.emailcontroller,
                         keyboardType: TextInputType.emailAddress,
-                        decoration:const InputDecoration(
+                        decoration: const InputDecoration(
                           hintText: 'Type Email',
                           hintStyle: TextStyle(
                               fontFamily: 'Poppins', color: Colors.black87),
@@ -65,11 +65,11 @@ class RegisterView extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: TextFormField(
                         controller: viewModel.passwordcontroller,
-                        keyboardType: TextInputType.visiblePassword,
+                        // keyboardType: TextInputType.visiblePassword,
                         obscureText: viewModel.isHidden,
                         decoration: InputDecoration(
                           hintText: 'Type Password',
-                          hintStyle:const TextStyle(
+                          hintStyle: const TextStyle(
                               fontFamily: 'Poppins', color: Colors.black87),
                           suffixIcon: GestureDetector(
                               onTap: () {
@@ -81,7 +81,7 @@ class RegisterView extends StatelessWidget {
                                     : Icons.visibility_off,
                                 color: Colors.blueGrey,
                               )),
-                          border:const OutlineInputBorder(
+                          border: const OutlineInputBorder(
                             borderSide:
                                 BorderSide(width: 1, color: Colors.blueGrey),
                           ),
@@ -106,17 +106,17 @@ class RegisterView extends StatelessWidget {
                       child: TextFormField(
                         controller: viewModel.confirmpasscontroller,
                         keyboardType: TextInputType.visiblePassword,
-                        obscureText: viewModel.isHidden,
+                        obscureText: viewModel.isreHidden,
                         decoration: InputDecoration(
                           hintText: 'Re-Type Password',
-                          hintStyle:const TextStyle(
+                          hintStyle: const TextStyle(
                               fontFamily: 'Poppins', color: Colors.black87),
                           suffixIcon: GestureDetector(
                               onTap: () {
-                                viewModel.showpassword();
+                                viewModel.reshowpassword();
                               },
                               child: Icon(
-                                viewModel.isHidden == false
+                                viewModel.isreHidden == false
                                     ? Icons.visibility
                                     : Icons.visibility_off,
                                 color: Colors.blueGrey,
@@ -135,8 +135,8 @@ class RegisterView extends StatelessWidget {
                         decoration: InputDecoration(
                             border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
-                          borderSide:
-                            const  BorderSide(width: 1, color: Colors.blueGrey),
+                          borderSide: const BorderSide(
+                              width: 1, color: Colors.blueGrey),
                         )),
                         child: DropdownButtonHideUnderline(
                           child: DropdownButton(
@@ -144,7 +144,7 @@ class RegisterView extends StatelessWidget {
                               isExpanded: true,
                               menuMaxHeight: 250,
                               value: viewModel.defaultname,
-                              items:  [
+                              items: [
                                 DropdownMenuItem(
                                   child: Text(
                                     "Select Type",
@@ -196,7 +196,7 @@ class RegisterView extends StatelessWidget {
                           decoration: BoxDecoration(
                               color: Color.fromARGB(255, 32, 100, 209),
                               borderRadius: BorderRadius.circular(10)),
-                          child:const Center(
+                          child: const Center(
                             child: Text(
                               "Register",
                               style: TextStyle(
